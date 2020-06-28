@@ -15,3 +15,14 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.navbar {
+  background-color: #c7e1ee;
+  .navbar-brand {
+    color: #0c0c0c;
+    &:hover,
+    &:focus {
+      color: #060505;
+    }
+  }
+}

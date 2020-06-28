@@ -10,6 +10,25 @@
   </head>
 
   <body>
+  <nav class="navbar navbar">
+   <div class="container-fluid">
+     <div class="navbar-header">
+     <%= link_to root_path, class: "navbar-brand" do %>
+       My Twitter
+       <% end %>
+     </div>
+
+     <ul class="nav navbar-nav navbar-left">
+     <li class="active"> <%= link_to 'Write a new Post', new_post_path %> </li>
+     </ul>
+
+     <ul class="nav navbar-nav navbar-right">
+     <li> <%= link_to 'Sign Up' %> </li>
+     <li> <%= link_to 'Login' %> </li>
+     </ul>
+   </div>
+ </nav>
+ 
   <% if flash[:notice] %>
        <div class="alert alert-info" role="alert"> 
          <p class="notice"> <%= notice %> </p>
