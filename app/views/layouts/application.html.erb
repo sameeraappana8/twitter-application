@@ -17,15 +17,21 @@
         My Twitter
         <% end %>
       </div>
-
-      <ul class="nav navbar-nav navbar-left">
-      <li class="active"> <%= link_to 'Write a new Post', new_post_path %> </li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-      <li> <%= link_to 'Sign Up' %> </li>
-      <li> <%= link_to 'Login' %> </li>
-      </ul>
+      
+      <% if user_signed_in? %>
+    <ul class="nav navbar-nav navbar-left">
+    <li class="active"> <%= link_to 'Write a new Post', new_post_path %> </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+    <li> <%= link_to current_user.name, edit_user_registration_path %> </li>
+    <li> <%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
+    </ul>
+    <% else %>
+    <ul class="nav navbar-nav navbar-right">
+    <li> <%= link_to 'Sign Up', new_user_registration_path%> </li>
+    <li> <%= link_to 'Login', new_user_session_path %> </li>
+    </ul>
+    <% end %>
     </div>
   </nav>
 

@@ -1,0 +1,37 @@
+<p> Your Profile</p>
+        <article class="media">
+		<figure class="media-left">
+			<p class="img-thumbnail">
+            <%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
+			</p>
+        </figure>
+        <div class="media-body">
+        <p>
+        <strong><%= current_user.name %></strong><br />
+        <small><%= current_user.username %></small>
+    </p>
+        </div>
+    </article>  
+    <br>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div>
+						<p class="heading">Posts</p>
+						<p class="title is-6"><%= current_user.posts.count %></p>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div>
+						<p class="heading">Following</p>
+						<p class="title">123</p>
+					</div>
+				</div>
+					<div class="col-md-3">
+					<div>
+						<p class="heading">Followers</p>
+						<p class="title">465K</p>
+					</div>
+				</div>
+			</div>
+		</div>
