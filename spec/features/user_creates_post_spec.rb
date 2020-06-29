@@ -1,7 +1,10 @@
 require "rails_helper"
 
 RSpec.describe "Creating post" do
+    let(:user) { FactoryBot.create(:user) }
+
     scenario "Successfully create post" do
+        sign_in user
         visit root_path
 
         expect(page).to have_selector("form")
@@ -13,6 +16,7 @@ RSpec.describe "Creating post" do
     end
 
     scenario "Unsuccessful" do
+        sign_in user
         visit root_path
         
         fill_in :post_post , with: ""
