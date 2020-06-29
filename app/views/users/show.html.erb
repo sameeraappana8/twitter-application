@@ -10,7 +10,10 @@
 			<p class="img-thumbnail">
             <%= gravatar_image_tag(@user.email, size: 64, alt: @user.name) %>
 			</p>
-        </figure>
+		</figure>
+		<div class="media-right">
+		<button> Follow </button>
+		</div>
         <div class="media-body">
         <p>
         <strong><%= @user.name %></strong><br>
