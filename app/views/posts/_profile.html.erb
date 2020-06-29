@@ -24,13 +24,13 @@
 				<div class="col-md-3">
 					<div>
 						<p class="heading">Following</p>
-						<p class="title">123</p>
+						<p class="title"><%= current_user.following.count %></p>
 					</div>
 				</div>
 					<div class="col-md-3">
 					<div>
 						<p class="heading">Followers</p>
-						<p class="title">465K</p>
+						<p class="title"><%= current_user.followers.count %></p>
 					</div>
 				</div>
 			</div>

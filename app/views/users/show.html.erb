@@ -11,16 +11,18 @@
             <%= gravatar_image_tag(@user.email, size: 64, alt: @user.name) %>
 			</p>
 		</figure>
-		<div class="media-right">
-		<button> Follow </button>
-		</div>
         <div class="media-body">
         <p>
         <strong><%= @user.name %></strong><br>
-        <small><%= @user.username %></small>
+		<small><%= @user.username %></small><br><br>
+		<% if current_user.following?(@user) %>
+		<%= button_to "Unfollow", relationship_path(user_id: @user.id ), method: :delete %>
+		<% else %>
+		<%= button_to "Follow", relationships_path(user_id: @user.id ) %>
+		<% end %>
     </p>
         </div>
-    </article>  
+	</article>  
     <br>
 		<div class="container">
 			<div class="row">
@@ -33,13 +35,13 @@
 				<div class="col-md-3">
 					<div>
                         <p class="heading">Following</p>
-						<p class="title">number</p>
+						<p class="title"><%= @user.following.count %></p>
 					</div>
 				</div>
 					<div class="col-md-3">
 					<div>
 						<p class="heading">Followers</p>
-						<p class="title">number</p>
+						<p class="title"><%= @user.followers.count %></p>
 					</div>
 				</div>
 			</div>

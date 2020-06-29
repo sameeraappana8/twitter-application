@@ -11,7 +11,9 @@
  	</article>
     <% end %>  
     <br>
+  <% if user_signed_in? %>
 <% @posts.each do | post | %>
+  <% if current_user.following?(post.user) || current_user.id == post.user_id %>
     <div>
         <article class="media">
             <div class="media-left">
@@ -39,4 +41,6 @@
                   </div>
                 </article>
                 </div>
+                <% end %>
+<% end %>
 <% end %>
