@@ -15,7 +15,7 @@ RSpec.describe "Creating post" do
     scenario "Unsuccessful" do
         visit root_path
         
-        fill_in :post_post, with: ""
+        fill_in :post_post , with: ""
         click_on "Create Post"
 
         expect(page).to have_content "error"

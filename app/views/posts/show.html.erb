@@ -1,9 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Post:</strong>
-  <%= @post.post %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div class="col-md-8 col-md-offset-2">
+   <div class="row">
+     <div class="panel panel-default">
+       <div class="panel-body">
+       <p id="notice"><%= notice %></p>
+       <p>
+         <strong>Your Post:</strong>
+         <%= @post.post %>
+       </p>
+       </div>
+       <div class="panel-footer">
+       <%= link_to 'Edit', edit_post_path(@post) %> |
+       <%= link_to 'Back', posts_path %>
+       </div>
+     </div>
+   </div>
+ </div>
