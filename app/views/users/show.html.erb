@@ -1,0 +1,47 @@
+<div class="col-md-8 col-md-offset-2">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+<h1>Profile</h1>
+</div>
+<div class="panel-body">
+        <article class="media">
+		<figure class="media-left">
+			<p class="img-thumbnail">
+            <%= gravatar_image_tag(@user.email, size: 64, alt: @user.name) %>
+			</p>
+        </figure>
+        <div class="media-body">
+        <p>
+        <strong><%= @user.name %></strong><br>
+        <small><%= @user.username %></small>
+    </p>
+        </div>
+    </article>  
+    <br>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div>
+						<p class="heading">Posts</p>
+						<p class="title"><%= @user.posts.count %></p>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div>
+                        <p class="heading">Following</p>
+						<p class="title">number</p>
+					</div>
+				</div>
+					<div class="col-md-3">
+					<div>
+						<p class="heading">Followers</p>
+						<p class="title">number</p>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+    </div>
+    </div>
+  </div>
