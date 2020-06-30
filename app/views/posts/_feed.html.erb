@@ -1,5 +1,4 @@
-<% if user_signed_in? %>
-    <article class="media">
+<article class="media">
     <figure class="media-left">
  	<p class="img-thumbnail">
         <%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
@@ -9,9 +8,8 @@
  			<%= render 'posts/form' %>
         </div>
  	</article>
-    <% end %>  
     <br>
-  <% if user_signed_in? %>
+    <h3> Your Feed </h3>
 <% @posts.each do | post | %>
   <% if current_user.following?(post.user) || current_user.id == post.user_id %>
     <div>
@@ -42,5 +40,4 @@
                 </article>
                 </div>
                 <% end %>
-<% end %>
 <% end %>
