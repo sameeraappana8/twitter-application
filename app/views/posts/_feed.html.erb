@@ -1,43 +1,43 @@
 <article class="media">
     <figure class="media-left">
- 	<p class="img-thumbnail">
+ 	  <p class="img-thumbnail">
         <%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
  		</p>
     </figure>
-        <div class="media-body">
+    <div class="media-body">
  			<%= render 'posts/form' %>
-        </div>
- 	</article>
-    <br>
-    <h3> Your Feed </h3>
+    </div>
+</article>
+<br>
+<h3> Your Feed </h3>
 <% @posts.each do | post | %>
   <% if current_user.following?(post.user) || current_user.id == post.user_id %>
     <div>
-        <article class="media">
-            <div class="media-left">
-                <figure class="img-thumbnail">
-                <%= gravatar_image_tag(post.user.email, size: 64, alt: post.user.name) %>
-                </figure>
-            </div>
-            <div class="media-body">
-                    <bold><%= post.user.name %> </bold><br />
-                    <small><%= post.user.username %></small><br/>
-                    <p><%= post.post %></p>
-                    <% if user_signed_in? && current_user.id == post.user_id %>
-                    <nav class="nav">
-  					<%= link_to post, class: "nav-item" do %>
-  					  <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
-            <% end %>
-  					<%= link_to edit_post_path(post), class: "nav-item" do %>
-  					  <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-  					<% end %>
-  					<%= link_to post, method: :delete, data: { confirm: "Are you sure you want to delete this post?" } do %>
-  							<span class="icon"><i class="fa fa-trash" aria-hidden="true"></i></span>
-                      <% end %>
-                      </nav>
-                      <% end %>
-                  </div>
-                </article>
-                </div>
-                <% end %>
+      <article class="media">
+        <div class="media-left">
+          <figure class="img-thumbnail">
+            <%= gravatar_image_tag(post.user.email, size: 64, alt: post.user.name) %>
+          </figure>
+        </div>
+        <div class="media-body">
+          <bold><%= post.user.name %> </bold><br />
+          <small><%= post.user.username %></small><br/>
+          <p><%= post.post %></p>
+          <% if user_signed_in? && current_user.id == post.user_id %>
+            <nav class="nav">
+  				  	<%= link_to post, class: "nav-item" do %>
+  					    <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
+              <% end %>
+  					  <%= link_to edit_post_path(post), class: "nav-item" do %>
+  					    <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+  					  <% end %>
+  					  <%= link_to post, method: :delete, data: { confirm: "Are you sure you want to delete this post?" } do %>
+  						  <span class="icon"><i class="fa fa-trash" aria-hidden="true"></i></span>
+              <% end %>
+            </nav>
+          <% end %>
+        </div>
+      </article>
+    </div>
+  <% end %>
 <% end %>

@@ -1,18 +1,15 @@
 <div class="container">
   <% if user_signed_in? %>
-  <div class="leftpane">
-  <%= render 'profile' %>
-  </div>
-  <div class="middlepane"> <%= render 'feed' %> </div>
-  <div class="rightpane">
-  <%= render 'people-to-follow' %>
-  </div>
+    <div class="leftpane">
+      <%= render 'profile' %>
+    </div>
+    <div class="middlepane"> <%= render 'feed' %> </div>
+    <div class="rightpane">
+      <%= render 'people-to-follow' %>
+    </div>
   <% else %>
-  <div class="middlepane">
-  <h1 class="display-1"> Join My Twitter now to follow people you know and post your thoughts! </h1>
-  </div>
-
+    <div class="middlepane">
+      <h1 class="display-1"> Join My Twitter now to follow people you know and post your thoughts! </h1>
+    </div>
   <% end %>
-
-  
 </div>
